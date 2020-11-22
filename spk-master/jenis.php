@@ -62,7 +62,7 @@
                                             <div class="form-group row" >
                                                 <label class="col-md-2 col-form-label h5">Merk</label>
                                                 <div class="col-md-10">
-                                                <select name="harga" class="form-control" required>
+                                                <select name="merk" class="form-control" required>
                                                     <option value="">- Merk -</option>        
                                                     <option value="5">Apple</option>
                                                     <option value="4">Asus</option>
@@ -79,7 +79,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label h5">Jenis</label>
                                             <div class="col-md-10">
-                                            <select name="processor" class="form-control" required>
+                                            <select name="jenis" class="form-control" required>
                                         <option value="">- Jenis Laptop -</option>
                                               
                                         <option value="3">Gaming</option>

@@ -11,14 +11,15 @@
                         <ul class="sub-menu children dropdown-menu">                            
                             <!-- <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Pengaturan</a></li> -->
                             <li><i class="fa fa-id-badge"></i><a href="tentang.php">Tentang Leptop</a></li>
-                            <li><i class="fa fa-spinner"></i><a href="jenis.php">Jenis/merk</a></li>
                         </ul>
                 
                     <li class="menu-title">Kriteria</li><!-- /.menu-title -->
 
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Pilih </a>
+                        <a href="pilih.php" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Pilih </a>
                         <ul class="sub-menu children dropdown-menu">
+                        <!-- <li><i class="fa fa-spinner"></i><a href="jenis.php">Jenis/merk</a></li> -->
+
                             <li><i class="menu-icon fa fa-laptop"></i><a href="pilih.php">Pilih Laptop</a></li>
                         </ul>
                     </li>

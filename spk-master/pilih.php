@@ -63,8 +63,42 @@
                             <div class="card-header" >
                              <h4>Pilih Laptop</h4>
                                 </div>
+                                </div>
                                     <div class="default-tab">
                                     <form action="hasil.php" method="post">
+                                        <div class="card-body-bobot">
+                                            <div class="form-group row" >
+                                                <label class="col-md-2 col-form-label h5">Merk</label>
+                                                <div class="col-md-10">
+                                                <select name="merk" class="form-control" required>
+                                                    <option value="">- Merk -</option>        
+                                                    <option value="5">Apple</option>
+                                                    <option value="4">Asus</option>
+                                                    <option value="3">HP</option>
+                                                    <option value="2">Del</option>
+                                                    <option value="1">Lenovo</option>
+                                                </select>
+                                                </div>
+                                            </div>
+                                        </div>	
+                                        
+                                        
+                                        </div>	
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label h5">Jenis</label>
+                                            <div class="col-md-10">
+                                            <select name="jenis" class="form-control" required>
+                                        <option value="">- Jenis Laptop -</option>
+                                              
+                                        <option value="3">Gaming</option>
+                                        <option value="5">kantor</option>
+                                        <option value="5">2 in 1</option>
+
+                                            </select>
+                                        </div>
+                                        </div>	
+                                    <div class="default-tab">
+
                                         <div class="card-body-bobot">
                                             <div class="form-group row" >
                                                 <label class="col-md-2 col-form-label h5">Kriteria Harga</label>

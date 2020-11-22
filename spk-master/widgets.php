@@ -108,7 +108,7 @@
                               <TH>KRITERIA PROCESSOR</TH>
                               <TH>KECEPATAN PROCESSOR</TH>
                               <TH>HARGA</TH>
-					</tr.
+					</tr>
 	      			</table>
       			</div>
       		</div>
