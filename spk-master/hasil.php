@@ -211,8 +211,8 @@ function JarakIplus($aplus,$bob){
                               <TH>RAM</TH>
                               <TH> VGA</Th>
                               <th>MEMORI</th>
-                              <TH>KRITERIA PROCESSOR</TH>
-                              <TH>HARGA</TH>
+                              <TH>KRITERIA PROCESSOR test</TH>
+                              <TH>HARGAs</TH>
 					</tr>
                 <tr>
                   <td><?= $W1 ?></td>
@@ -227,6 +227,9 @@ function JarakIplus($aplus,$bob){
             </div>
           </div>
         </div>
+
+
+
 
         <div class="card card-default mb-5">
           <div class="card-header h4">
