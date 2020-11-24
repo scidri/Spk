@@ -86,24 +86,13 @@ function JarakIplus($aplus,$bob){
 
 
 <body>
-
-<?php include("side.php");?>
-    
-    <div id="right-panel" class="right-panel">
-        <?php include("header.php");?>
-      
-        <div class="content">
-            <!-- Animated -->
-            <div class="animated fadeIn">
-                <!-- Widgets  -->
-
-                <!--  Traffic  -->
-                <div class="row">
-                    <div class="col-lg-12"  >
-                        <div class="card">
-                            <div class="card-body">
-                            
-
+<header id="header" class="header">
+            <div class="top-left">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.php"><h4>Dashboard</h4></a>
+                </div>
+            </div>
+</header>
   <!-- Page Content -->
   <div class="container">
     <div class="row">
@@ -211,8 +200,8 @@ function JarakIplus($aplus,$bob){
                               <TH>RAM</TH>
                               <TH> VGA</Th>
                               <th>MEMORI</th>
-                              <TH>KRITERIA PROCESSOR test</TH>
-                              <TH>HARGAs</TH>
+                              <TH>KRITERIA PROCESSOR </TH>
+                              <TH>HARGA</TH>
 					</tr>
                 <tr>
                   <td><?= $W1 ?></td>

@@ -72,10 +72,10 @@
                                                 <div class="col-md-10">
                                                 <select name="merk" class="form-control" required>
                                                     <option value="">- Merk -</option>        
-                                                    <option value="5">Apple</option>
-                                                    <option value="4">Asus</option>
-                                                    <option value="3">HP</option>
-                                                    <option value="2">Del</option>
+                                                    <option value="1">Apple</option>
+                                                    <option value="1">Asus</option>
+                                                    <option value="1">HP</option>
+                                                    <option value="1">Del</option>
                                                     <option value="1">Lenovo</option>
                                                 </select>
                                                 </div>
@@ -90,9 +90,9 @@
                                             <select name="jenis" class="form-control" required>
                                         <option value="">- Jenis Laptop -</option>
                                               
-                                        <option value="3">Gaming</option>
-                                        <option value="5">kantor</option>
-                                        <option value="5">2 in 1</option>
+                                        <option value="1">Gaming</option>
+                                        <option value="1">kantor</option>
+                                        <option value="1">2 in 1</option>
 
                                             </select>
                                         </div>
@@ -145,17 +145,20 @@
                                         <option value="2">128 GB</option>
                                         <option value="3">256 GB</option>
                                         <option value="4">512 GB<option>
+                                        <option value="5"> > 512 GB<option>
                                             </select>
                                         </div>
                                         </div>	
                                         <div class="form-group row">
-                                            <label class="col-md-2 col-form-label h5">Processor</label>
+                                        <label class="col-md-2 col-form-label h5">Processor</label>
                                             <div class="col-md-10">
                                             <select name="processor" class="form-control" required>
                                         <option value="">- kriteria Processor -</option>
-                                                <option value="1">Dualcore</option>
-                                        <option value="3">Quadcore</option>
-                                        <option value="5">Octacore</option>
+                                                <option value="1">Intel Celeron</option>
+                                                <option value="2">Intel Core I3</option>
+                                        <option value="3">Intel Core I5</option>
+                                        <option value="4">Intel Core I7</option>
+                                        <option value="5">Intel Core I9</option>
                                             </select>
                                         </div>
                                         </div>	
@@ -165,12 +168,10 @@
                                             <select name="kprocessor" class="form-control" required>
                                         <option value="">- Kecepatan Processor -</option>
                                         <option value="1">2 GHz</option>
-                                                <option value="2">2,3 GHz</option>
-                                        <option value="3">2.4 GHz</option>
-                                        <option value="4">2.6 GHz</option>
-                                        <option value="5">2.7 GHz</option>
-                                        <option value="6">2.8 GHz</option>
-                                        <option value="6">3.4 GHz</option>
+                                                <option value="2">2,3 GHz-2.4 GHz</option>
+                                        <option value="3">2.6 GHz-2.7 GHz</option>
+                                        <option value="4">2.8 GHz</option>
+                                        <option value="5"> > 3.4 GHz</option>
                                             </select>
                                         </div>
                                         </div>		

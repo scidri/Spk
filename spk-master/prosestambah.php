@@ -143,6 +143,7 @@
                                         <option value="128">128 GB</option>
                                         <option value="256">256 GB</option>
                                         <option value="512">512 GB<option>
+                                        <option value="512">>512 GB<option>
                                             </select>
                                         </div>
                                         </div>	
@@ -155,6 +156,7 @@
                                                 <option value="Intel_Core_I3">Intel Core I3</option>
                                         <option value="Intel_Core_I5">Intel Core I5</option>
                                         <option value="Intel_Core_I7">Intel Core I7</option>
+                                        <option value="Intel_Core_I9">Intel Core I9</option>
                                             </select>
                                         </div>
                                         </div>	
@@ -183,5 +185,6 @@
                                                 
 
                                      </div>
+                                     
     </body>
     </html>

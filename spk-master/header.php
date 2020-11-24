@@ -1,8 +1,7 @@
 <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="./"><h4>Tanya Laptop</h4></a>
-                    <a class="navbar-brand hidden" href="./"><img src="img/acer.jpg" alt="Logo"></a>
+                    <a class="navbar-brand" href="index.php"><h4>Tanya Laptop</h4></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
             </div>

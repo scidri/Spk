@@ -29,60 +29,13 @@
    <?php include("side.php");?>
 
     <div id="right-panel" class="right-panel">
+    <?php include("header.php");?>
         <!-- Header-->
-        <header id="header" class="header">
-            <div class="top-left">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="./"><h4>Tanya Laptop</h4></a>
-                    <a class="navbar-brand hidden" href="./"><img src="img/acer.jpg" alt="Logo"></a>
-                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
-                </div>
-            </div>
-            <div class="top-right">
-                <div class="header-menu">
-                    <div class="header-left">
-                        <button class="search-trigger"><i class="fa fa-search"></i></button>
-                        <div class="form-inline">
-                            <form class="search-form">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
-                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
-                            </form>
-                        </div>
-                        <div class="dropdown for-message">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-envelope"></i>
-                                <span class="count bg-primary"></span>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="message">
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="user-area dropdown float-right">
-                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="img/profil.jpeg" alt="User Avatar">
-                        </a>
-
-                        <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-                            <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
-
-                            <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </header>
-        <div class="breadcrumbs">
+                <div class="breadcrumbs">
             <div class="breadcrumbs-inner">
                 <div class="row m-0">
                     <div class="col-sm-4">
                         <div class="page-header float-left">
-                            <div class="page-title">
-                                <h1>Dashboard</h1>
-                            </div>
                         </div>
                     </div>
                   
@@ -109,7 +62,6 @@
                               <TH>KECEPATAN PROCESSOR</TH>
                               <TH>HARGA</TH>
 					</tr>
-	      			</table>
       			</div>
       		</div>
       	</div>
@@ -123,6 +75,9 @@
         <div class="clearfix"></div>
         
     </div>
+    </div>
+
+
     <!-- /#right-panel -->
 
     <!-- Scripts -->
@@ -165,5 +120,6 @@
 		}		
         ?>
         </tbody>
+</table>
 </body>
 </html>
