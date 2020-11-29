@@ -223,16 +223,16 @@ function Transpose($squareArray) {
                   <th>Nilai</th>
                 </tr>
                 <?php  
-                 $query = "SELECT * FROM data_hp";
+                 $query = "SELECT * FROM datalaptop";
                  $sql = mysqli_query($conn,$query)or die(mysqli_error());
                  $no=1;
                   $nilaiV = array();
                   foreach ($sql as $key => $value) { 
-                    array_push($nilaiV, $Dmin[$no-1]/($Dmin[$no-1]+$Dplus[$no-1]));
+                    array_push($nilaiV, $Dmin[$id-1]/($Dmin[$id-1]+$Dplus[$no-1]));
                   ?>
                   <tr>
-                    <td>V<?= $no ?></td>
-                    <td><?= $Dmin[$no-1]/($Dmin[$no-1]+$Dplus[$no-1]) ?></td>
+                    <td>V<?= $id ?></td>
+                    <td><?= $Dmin[$id-1]/($Dmin[$id-1]+$Dplus[$id-1]) ?></td>
                   </tr>
                   
                   <?php $no++;}
@@ -251,21 +251,21 @@ function Transpose($squareArray) {
                 <tr class="">
                   <th>Nilai Preferensi tertinggi</th>
                   <th></th>
-                  <th>Alternatif HP terpilih</th>
+                  <th>Alternatif Laptop terpilih</th>
                 </tr>
                 <?php
                   $nilaiMax = max($nilaiV);
 
                   for ($i=0; $i < count($nilaiV) ; $i++) { 
                     if ($nilaiV[$i] == $nilaiMax) {
-                      $query = mysqli_query($conn,"SELECT * FROM data_hp WHERE id_hp=$i+1 ") or die(mysqli_error()); ?>
+                      $query = mysqli_query($conn,"SELECT * FROM datalaptop WHERE id=$i+1 ") or die(mysqli_error()); ?>
 
                     <td>V<?= $i+1; ?></td>
                     <td><?= $nilaiV[$i] ?></td>
                     <td>
                       <?php
                         foreach ($query as $key => $value) {
-                          echo $value['nama_hp'];
+                          echo $value['vtype'];
                         }
                       ?>
                     </td>
@@ -278,23 +278,11 @@ function Transpose($squareArray) {
           </div>
         </div>
 
-        <a href="index.php" class="btn btn-primary mb-5">Hitung Rekomedasi Lagi</a>
+        <a href="pilih.php" class="btn btn-primary mb-5">Hitung Rekomedasi Lagi</a>
       </div>
     </div>
-    <!-- /.row -->
-
   </div>
-  <!-- /.container -->
 
-  <!-- Footer -->
-<!--   <footer class="py-5 bg-dark mt-5">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
-    </div>
-   
-  </footer> -->
-
-  <!-- Bootstrap core JavaScript -->
   <script src="jquery/jquery.min.js"></script>
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
