@@ -118,8 +118,8 @@
                                             <div class="col-md-10">
                                             <select name="vga" class="form-control" required>
                                         <option value="">- kriteria VGA -</option>
-                                                <option value="NVidia_Geforce_MX150">NVidia Geforce MX150</option>
-                                        <option value="Nvidia_GeForce_GTX940 MX">Nvidia GeForce GTX940 MX</option>
+                                                <option value="NVidia _Geforce_MX150">NVidia Geforce MX150</option>
+                                        <option value="Nvidia_GeForce_GTX940_MX">Nvidia GeForce GTX940 MX</option>
                                         <option value="Nvidia_GeForce_GT930MX">Nvidia GeForce GT930MX</option>
                                         <option value="Intel_Ultra_HD_Graphics_600">Intel Ultra HD Graphics 600</option>
                                         <option value="AMD_Radeon_R3">AMD Radeon R3</option>
@@ -131,19 +131,19 @@
                                             <div class="col-md-10">
                                             <select name="hdd" class="form-control" required>
                                         <option value="">- kriteria Hardisk -</option>
-                                        <option value="240">240 GB</option>
-                                        <option value="320">320 GB</option>
-                                        <option value="500">500 GB</option>
-                                        <option value="750">750 GB</option>
-                                        <option value="10000">1 TB</option>
+                                        <option value="1">240 GB</option>
+                                        <option value="2">320 GB</option>
+                                        <option value="3">500 GB</option>
+                                        <option value="4">750 GB</option>
+                                        <option value="5">1 TB</option>
                                             </select>
                                             <select name="ssd" class="form-control" required>
                                         <option value="">- kriteria SSD-</option>
-                                        <option value="0">0 </option>
-                                        <option value="128">128 GB</option>
-                                        <option value="256">256 GB</option>
-                                        <option value="512">512 GB<option>
-                                        <option value="512">>512 GB<option>
+                                        <option value="1">0 </option>
+                                        <option value="2">128 GB</option>
+                                        <option value="3">256 GB</option>
+                                        <option value="4">512 GB<option>
+                                        <option value="5">>512 GB<option>
                                             </select>
                                         </div>
                                         </div>	

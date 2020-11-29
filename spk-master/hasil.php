@@ -1,15 +1,12 @@
 <?php 
 include "koneksi.php";
-  
-//Bobot
-$W1 = $_POST["merk"];
-$W2 = $_POST["jenis"];
-$W3 = $_POST["harga"];
-$W4 = $_POST["ram"];
-$W5 = $_POST["memori"];
-$W6 = $_POST["processor"];
-$W7 = $_POST["kprocessor"];
-
+$W1=$_POST['harga'];  
+$W2=$_POST['ram'];
+$W3=$_POST['vga'];
+$W4=$_POST['hdd'];
+$W5=$_POST['ssd'];
+$W6=$_POST['processor'];
+$W7=$_POST['kprocessor'];                                                                
 //Pembagi Normalisasi
 function pembagiNM($matrik){
 
@@ -26,35 +23,23 @@ function pembagiNM($matrik){
 //Normalisasi
 function Transpose($squareArray) {
 
-    if ($squareArray == null) { return null; }
-    $rotatedArray = array();
-    $r = 0;
+  if ($squareArray == null) { return null; }
+  $rotatedArray = array();
+  $r = 0;
 
-    foreach($squareArray as $row) {
-        $c = 0;
-        if (is_array($row)) {
-            foreach($row as $cell) { 
-                $rotatedArray[$c][$r] = $cell;
-                ++$c;
-            }
-        }
-        else $rotatedArray[$c][$r] = $row;
-        ++$r;
-    }
-    return $rotatedArray;
-}
-
-function JarakIplus($aplus,$bob){
-  for ($i=0;$i<sizeof($bob);$i++) {
-    $dplus[$i] = 0;
-    for($j=0;$j<sizeof($aplus);$j++){
-      $dplus[$i] = $dplus[$i] + pow(($aplus[$j] - $bob[$i][$j]),2);
-    }
-    $dplus[$i] = round(sqrt($dplus[$i]),4);
+  foreach($squareArray as $row) {
+      $c = 0;
+      if (is_array($row)) {
+          foreach($row as $cell) { 
+              $rotatedArray[$c][$r] = $cell;
+              ++$c;
+          }
+      }
+      else $rotatedArray[$c][$r] = $row;
+      ++$r;
   }
-  return $dplus;
+  return $rotatedArray;
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -100,7 +85,7 @@ function JarakIplus($aplus,$bob){
         <div class="alert alert-default"><h3>Hasil Rekomendasi</h3></div>
       	<div class="card card-default mb-5">
       		<div class="card-header h4">
-      			Matrik Handphone
+      			Matrik Laptop
       		</div>
       		<div class="car-body">
       			<div class="table-responsive">
@@ -110,30 +95,35 @@ function JarakIplus($aplus,$bob){
 		      				<th>C1 (Cost)</th>
 		      				<th>C2 (Benefit)</th>
 		      				<th>C3 (Benefit)</th>
-		      				<th>C4 (Benefit)</th>
+                  <th>C4 (Benefit)</th>
 		      				<th>C5 (Benefit)</th>
+		      				<th>C6 (Benefit)</th>
       					</tr>
                 <?php 
                 $no=1;
                   $query = "SELECT * FROM datalaptop";
-                  $sql = mysqli_query($conn,$query);
+                  $sql = mysqli_query($db,$query);
 
                   foreach ($sql as $key => $value) { 
 
                     $Matrik[]=array(
-                          $value['harga_angka'],
-                          $value['ram_angka'],
-                          $value['memori_angka'],
-                          $value['processor_angka'],
-                          $value['kamera_angka'] );
+                          $value['harga'],
+                          $value['ram'],
+                          $value['hdd'],
+                          $value['ssd'],
+                          $value['vga'],
+                          $value['processor'], 
+                          $value['kprocessor'] );
                     ?>
                   <tr>
-                    <td><?= 'A',$no++ ?></td>
-                    <td><?= $value['harga_angka'] ?></td>
-                    <td><?= $value['ram_angka'] ?></td>
-                    <td><?= $value['memori_angka'] ?></td>
-                    <td><?= $value['processor_angka'] ?></td>
-                    <td><?= $value['kamera_angka'] ?></td>
+                    <td><?= 'a',$no++ ?></td>
+                    <td><?= $value['harga'] ?></td>
+                    <td><?= $value['ram'] ?></td>
+                    <td><?= $value['hdd'] ?></td>
+                    <td><?= $value['ssd'] ?></td>
+                    <td><?= $value['vga'] ?></td>
+                    <td><?= $value['processor'] ?></td>
+                    <td><?= $value['kprocessor'] ?></td>
                   </tr>   
                   <?php } 
                 ?>
@@ -144,41 +134,46 @@ function JarakIplus($aplus,$bob){
 
         <div class="card card-default mb-5">
           <div class="card-header h4">
-            Matrik Normalisasi "R"
+          Perhitungan Vektor S
           </div>
           <div class="car-body">
             <div class="table-responsive">
               <table class="table table-stripped table-hover" id="datatables">
                 <tr class="">
-                  <th>Alternatif</th>
-                  <th>C1 (Cost)</th>
-                  <th>C2 (Benefit)</th>
-                  <th>C3 (Benefit)</th>
+                <th>Alternatif</th>
+		      				<th>C1 (Cost)</th>
+		      				<th>C2 (Benefit)</th>
+		      				<th>C3 (Benefit)</th>
                   <th>C4 (Benefit)</th>
-                  <th>C5 (Benefit)</th>
+		      				<th>C5 (Benefit)</th>
+		      				<th>C6 (Benefit)</th>
                 </tr>
                 <?php 
                 $no=1;
                   $query = "SELECT * FROM datalaptop";
-                  $sql = mysqli_query($conn,$query);
+                  $sql = mysqli_query($db,$query);
                   $pembagiNM=pembagiNM($Matrik);
 
                   foreach ($sql as $key => $value) { 
-                    $MatrikNormalisasi[$no-1]=array(
+                    $MatrikNormalisasi[$id-1]=array(
                           $value['harga_angka']/$pembagiNM[0],
                           $value['ram_angka']/$pembagiNM[1],
-                          $value['memori_angka']/$pembagiNM[2],
-                          $value['processor_angka']/$pembagiNM[3],
-                          $value['kamera_angka']/$pembagiNM[4]);
+                          $value['hhd_angka']/$pembagiNM[2],
+                          $value['ssd_angka']/$pembagiNM[3],
+                          $value['vga_angka']/$pembagiNM[4],
+                          $value['processor_angka']/$pembagiNM[5],
+                          $value['kprocessor_angka']/$pembagiNM[5]);
                   ?>
 
                   <tr>
-                    <td><?= 'A',$no++ ?></td>
+                    <td><?= 'A',$id++ ?></td>
                     <td><?= round($value['harga_angka']/$pembagiNM[0],6) ?></td>
                     <td><?= round($value['ram_angka']/$pembagiNM[1],6) ?></td>
-                    <td><?= round($value['memori_angka']/$pembagiNM[2],6) ?></td>
-                    <td><?= round($value['processor_angka']/$pembagiNM[3],6) ?></td>
-                    <td><?= round($value['kamera_angka']/$pembagiNM[4],6) ?></td>
+                    <td><?= round($value['hdd_angka']/$pembagiNM[2],6) ?></td>
+                    <td><?= round($value['ssd_angka']/$pembagiNM[3],6) ?></td>
+                    <td><?= round($value['vga_angka']/$pembagiNM[4],6) ?></td>
+                    <td><?= round($value['processor_angka']/$pembagiNM[5],6) ?></td>
+                    <td><?= round($value['kprocessor_angka']/$pembagiNM[6],6) ?></td>
                   </tr>   
                   <?php } 
                 ?>
@@ -195,14 +190,14 @@ function JarakIplus($aplus,$bob){
             <div class="table-responsive">
             <table class="table table-stripped table-hover" id="datatables">
       					<tr class="">
-		      				<th>MERK</th>
-                              <th>JENIS</th>
-                              <TH>RAM</TH>
-                              <TH> VGA</Th>
-                              <th>MEMORI</th>
-                              <TH>KRITERIA PROCESSOR </TH>
-                              <TH>HARGA</TH>
-					</tr>
+                <TH>HARGA</TH>
+                <TH>RAM</TH>
+                <TH> VGA</Th>
+                <th>HDD</th>
+                <TH>SSD</TH>
+                <TH>PROCESSOR</TH>
+                <TH>KRITERIA PROCESSOR </TH>
+                </tr>
                 <tr>
                   <td><?= $W1 ?></td>
                   <td><?= $W2 ?></td>
@@ -216,148 +211,6 @@ function JarakIplus($aplus,$bob){
             </div>
           </div>
         </div>
-
-
-
-
-        <div class="card card-default mb-5">
-          <div class="card-header h4">
-            Matriks Normalisasi Bobot Y
-          </div>
-          <div class="car-body">
-            <div class="table-responsive">
-              <table class="table table-stripped table-hover text-center" id="datatables">
-                <tr class="">
-                  <th>Alternatif</th>
-                  <th>C1 (Cost)</th>
-                  <th>C2 (Benefit)</th>
-                  <th>C3 (Benefit)</th>
-                  <th>C4 (Benefit)</th>
-                  <th>C5 (Benefit)</th>
-                </tr>
-                <?php 
-                  $no=1;
-                  $query = "SELECT * FROM data_hp";
-                  $sql = mysqli_query($conn,$query);
-                  $pembagiNM=pembagiNM($Matrik);
-                  foreach ($sql as $key => $value) { 
-                    $NormalisasiBobot[$no-1]=array(
-                            $MatrikNormalisasi[$no-1][0]*$W1,
-                            $MatrikNormalisasi[$no-1][1]*$W2,
-                            $MatrikNormalisasi[$no-1][2]*$W3,
-                            $MatrikNormalisasi[$no-1][3]*$W4,
-                            $MatrikNormalisasi[$no-1][4]*$W5
-                          );
-                  ?>
-
-                  <tr>
-                    <td><?= 'A',$no ?></td>
-                    <td><?= round($MatrikNormalisasi[$no-1][0]*$W1,6) ?></td>
-                    <td><?= round($MatrikNormalisasi[$no-1][1]*$W1,6) ?></td>
-                    <td><?= round($MatrikNormalisasi[$no-1][2]*$W1,6) ?></td>
-                    <td><?= round($MatrikNormalisasi[$no-1][3]*$W1,6) ?></td>
-                    <td><?= round($MatrikNormalisasi[$no-1][4]*$W1,6) ?></td>
-                  </tr>   
-                  <?php $no++; } 
-                ?>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div class="card card-default mb-5">
-          <div class="card-header h4">
-            Matrik Solusi ideal positif "A+" dan negatif "A-"
-          </div>
-          <div class="car-body">
-            <div class="table-responsive">
-              <table class="table table-stripped table-hover text-center" id="datatables">
-                <tr class="">
-                  <th></th>
-                  <th>Y1 (Cost)</th>
-                  <th>Y2 (Benefit)</th>
-                  <th>Y3 (Benefit)</th>
-                  <th>Y4 (Benefit)</th>
-                  <th>Y5 (Benefit)</th>
-                </tr>
-                <?php 
-                $NormalisasiBobotTrans = Transpose($NormalisasiBobot);
-                ?>
-                <tr>
-                  <?php
-                    $idealpositif=array(
-                      min($NormalisasiBobotTrans[0]),
-                      max($NormalisasiBobotTrans[1]),
-                      max($NormalisasiBobotTrans[2]),
-                      max($NormalisasiBobotTrans[3]),
-                      max($NormalisasiBobotTrans[4])
-                    );
-                  ?>
-                  <td>Y+ </td>
-                  <td><?= round(min($NormalisasiBobotTrans[0]),6) ?> (Min)</td>
-                  <td><?= round(max($NormalisasiBobotTrans[1]),6) ?> (Max)</td>
-                  <td><?= round(max($NormalisasiBobotTrans[2]),6) ?> (Max)</td>
-                  <td><?= round(max($NormalisasiBobotTrans[3]),6) ?> (Max)</td>
-                  <td><?= round(max($NormalisasiBobotTrans[4]),6) ?> (Max)</td>
-                </tr>
-                <tr>
-                  <?php  
-                    $idealnegatif=array(
-                      max($NormalisasiBobotTrans[0]),
-                      min($NormalisasiBobotTrans[1]),
-                      min($NormalisasiBobotTrans[2]),
-                      min($NormalisasiBobotTrans[3]),
-                      min($NormalisasiBobotTrans[4])
-                    );
-                  ?>
-                  <td>Y-</td>
-                  <td><?= round(max($NormalisasiBobotTrans[0]),6) ?> (Max)</td>
-                  <td><?= round(min($NormalisasiBobotTrans[1]),6) ?> (Min)</td>
-                  <td><?= round(min($NormalisasiBobotTrans[2]),6) ?> (Min)</td>
-                  <td><?= round(min($NormalisasiBobotTrans[3]),6) ?> (Min)</td>
-                  <td><?= round(min($NormalisasiBobotTrans[4]),6) ?> (Min)</td>
-
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div class="card card-default mb-5">
-          <div class="card-header h4">
-            Jarak antara nilai terbobot setiap alternatif terhadap solusi ideal positif
-          </div>
-          <div class="car-body">
-            <div class="table-responsive">
-              <table class="table table-stripped table-hover text-center" id="datatables">
-                <tr class="">
-                  <th>D +</th>
-                  <th></th>
-                  <th>D -</th>
-                  <th></th>
-                </tr>
-                <?php  
-                 $query = "SELECT * FROM data_hp";
-                 $sql = mysqli_query($conn,$query)or die(mysqli_error());
-                 $no=1;
-                  $Dplus=JarakIplus($idealpositif,$NormalisasiBobot);
-                  $Dmin=JarakIplus($idealnegatif,$NormalisasiBobot);
-
-                  foreach ($sql as $key => $value) { ?>
-                  <tr>
-                    <td>D<?= $no ?></td>
-                    <td><?= round($Dplus[$no-1],6) ?></td>
-                    <td>D<?= $no ?></td>
-                    <td><?= round($Dmin[$no-1],6) ?></td>
-                  </tr>
-                  
-                  <?php $no++;}
-                ?>
-              </table>
-            </div>
-          </div>
-        </div>
-
         <div class="card card-default mb-5">
           <div class="card-header h4">
             Nilai Preferensi untuk Setiap alternatif (V)
@@ -388,7 +241,6 @@ function JarakIplus($aplus,$bob){
             </div>
           </div>
         </div>
-
         <div class="card card-default mb-5">
           <div class="card-header h4">
             Nilai Preferensi tertinggi
@@ -426,7 +278,7 @@ function JarakIplus($aplus,$bob){
           </div>
         </div>
 
-        <a href="rekomendasi.php" class="btn btn-primary mb-5">Hitung Rekomedasi Lagi</a>
+        <a href="index.php" class="btn btn-primary mb-5">Hitung Rekomedasi Lagi</a>
       </div>
     </div>
     <!-- /.row -->

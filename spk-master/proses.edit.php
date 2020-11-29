@@ -18,7 +18,7 @@ include("koneksi.php");
     $kprocessor=$_POST['kprocessor'];
     $harga=$_POST['harga'];
     // buat query
-    $sql = "UPDATE datalaptop SET id='$id', merk='$merk', jenis='$jenis', vtype='$type',ram='$ram',vga='$vga',hdd='$hdd',ssd='$ssd',processor='$processor',kprocessor='$kprocessor',harga='$harga' WHERE id=$id";
+    $sql = "UPDATE datalaptop SET id='$id', merk='$merk', jenis='$jenis', vtype='$vtype',ram='$ram',vga='$vga',hdd='$hdd',ssd='$ssd',processor='$processor',kprocessor='$kprocessor',harga='$harga' WHERE id=$id";
     $query = mysqli_query($db, $sql);
 
     // apakah query simpan berhasil?

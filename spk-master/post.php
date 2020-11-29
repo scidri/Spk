@@ -10,6 +10,7 @@ if($ram <2){
 elseif($ram == 6){
 	$ram_angka = 5;
 }
+
 //bobot angga vga
 if($vga == "NVidia_Geforce_MX150"){
 	$vga_angka = 1;

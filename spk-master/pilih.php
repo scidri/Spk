@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	include('koneksi.php');
+?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -66,7 +70,7 @@
                                 </div>
                                     <div class="default-tab">
                                     <form action="hasil.php" method="post">
-                                        <div class="card-body-bobot">
+                                        <!-- <div class="card-body-bobot">
                                             <div class="form-group row" >
                                                 <label class="col-md-2 col-form-label h5">Merk</label>
                                                 <div class="col-md-10">
@@ -96,7 +100,7 @@
 
                                             </select>
                                         </div>
-                                        </div>	
+                                        </div>	 -->
                                     <div class="default-tab">
 
                                         <div class="card-body-bobot">
@@ -131,7 +135,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label h5">Memori</label>
                                             <div class="col-md-10">
-                                            <select name="memori" class="form-control" required>
+                                            <select name="hdd" class="form-control" required>
                                         <option value="">- kriteria Hardisk -</option>
                                         <option value="1">240 GB</option>
                                         <option value="2">320 GB</option>
@@ -139,7 +143,7 @@
                                         <option value="4">750 GB</option>
                                         <option value="5">1 TB</option>
                                             </select>
-                                            <select name="memori" class="form-control" required>
+                                            <select name="ssd" class="form-control" required>
                                         <option value="">- kriteria SSD-</option>
                                         <option value="1">0 </option>
                                         <option value="2">128 GB</option>
@@ -149,6 +153,19 @@
                                             </select>
                                         </div>
                                         </div>	
+                                        <div class="form-group row">
+                                            <label class="col-md-2 col-form-label h5">VGA</label>
+                                            <div class="col-md-10">
+                                            <select name="vga" class="form-control" required>
+                                        <option value="">- kriteria VGA -</option>
+                                                <option value="1">NVidia Geforce MX150</option>
+                                        <option value="2">Nvidia GeForce GTX940 MX</option>
+                                        <option value="3">Nvidia GeForce GT930MX</option>
+                                        <option value="4">Intel Ultra HD Graphics 600</option>
+                                        <option value="5">AMD Radeon R3</option>
+                                            </select>
+                                        </div>
+                                        </div>
                                         <div class="form-group row">
                                         <label class="col-md-2 col-form-label h5">Processor</label>
                                             <div class="col-md-10">
@@ -180,8 +197,7 @@
                                             <button type="submit" class="btn btn-primary">Hitung</button>
                                         </div>
                                     </form>
-                                                
-
                                             </div>
+                                            
     </body>
     </html>

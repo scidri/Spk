@@ -1,4 +1,8 @@
-
+<?php
+        include("koneksi.php");
+		$sql = "SELECT * FROM datalaptop";
+        $datalaptop = mysqli_query($db,$sql) or die(mysqli_error()); 
+?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -93,33 +97,26 @@
     <script src="https://cdn.jsdelivr.net/npm/flot-spline@0.0.1/js/jquery.flot.spline.min.js"></script>
     <!-- local -->
     <script src="assets/js/widgets.js"></script>
-
-    
-    <tbody>
         <?php
-        include("koneksi.php");
-        
-		$sql = "SELECT * FROM datalaptop";
-		$query = mysqli_query($db, $sql);
-		
-		while($manusia = mysqli_fetch_array($query)){
-			echo "<tr>";
-			
-			echo "<td>".$manusia['id']."</td>";
-			echo "<td>".$manusia['merk']."</td>";
-            echo "<td>".$manusia['jenis']."</td>";
-            echo "<td>".$manusia['vtype']."</td>";
-            echo "<td>".$manusia['ram']."</td>";
-            echo "<td>".$manusia['vga']."</td>";
-            echo "<td>".$manusia['hdd']."</td>";
-            echo "<td>".$manusia['ssd']."</td>";
-            echo "<td>".$manusia['processor']."</td>";
-            echo "<td>".$manusia['kprocessor']."</td>";
-            echo "<td>".$manusia['harga']."</td>";
-			echo "</tr>";
-		}		
+                  $id=1;
+                  foreach ($datalaptop as $key => $value) { ?>
+                  <tr>
+                    <td><?= $id++ ?></td>
+                    <td><?= $value['merk'] ?></td>
+                    <td><?= $value['jenis'] ?></td>
+                    <td><?= $value['vtype'] ?></td>
+                    <td><?= $value['ram'] ?> GB</td>
+                    <td><?= $value['vga'] ?></td>
+                    <td><?= $value['hdd'] ?> GB</td>
+                    <td><?= $value['ssd'] ?> GB</td>
+                    <td><?= $value['processor'] ?></td>
+                    <td><?= $value['kprocessor'] ?>GHz</td>
+                    <td>Rp.<?=$value['harga'] ?></td>
+                  </tr>
+                  <?php }
         ?>
-        </tbody>
+     
+
 </table>
 </body>
 </html>
